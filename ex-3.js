@@ -1,5 +1,15 @@
 function singleNumber(nums) {
-  // Start coding here
+  let count = {}; 
+
+  for (let num of nums) {
+    count[num] = (count[num] || 0) + 1;
+  }
+
+  for (let num in count) {
+    if (count[num] === 1) {
+      return Number(num);
+    }
+  }
 }
 
 let result1 = singleNumber([2, 2, 1]);
@@ -9,4 +19,3 @@ let result3 = singleNumber([10]);
 console.log(result1); // 1
 console.log(result2); // 4
 console.log(result3); // 10
-console.log(typeof result1); // "number"
